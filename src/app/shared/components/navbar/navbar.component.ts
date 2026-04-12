@@ -25,8 +25,9 @@ export class NavbarComponent implements AfterViewInit {
   readonly items: NavItem[] = [
     { label: 'Inicio', href: '#inicio', icon: 'home' },
     { label: 'Acerca', href: '#acerca', icon: 'user' },
+    { label: 'Tecnologias', href: '#tecnologias', icon: 'tech' },
     { label: 'Proyectos', href: '#proyectos', icon: 'folder' },
-    { label: 'Servicios', href: '#servicios', icon: 'service' }
+    { label: 'Contacto', href: '#contacto', icon: 'contact' }
   ];
   readonly activeHref = signal('#inicio');
   readonly indicatorLeft = signal('0px');
