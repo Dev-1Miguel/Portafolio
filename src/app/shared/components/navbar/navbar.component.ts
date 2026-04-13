@@ -7,12 +7,8 @@ import {
   ViewChildren,
   signal
 } from '@angular/core';
-
-type NavItem = {
-  label: string;
-  href: string;
-  icon: string;
-};
+import { NAV_ITEMS } from '../../data/navigation.data';
+import { NavItem } from '../../models/nav-item.model';
 
 @Component({
   selector: 'app-navbar',
@@ -22,13 +18,7 @@ type NavItem = {
 export class NavbarComponent implements AfterViewInit {
   @ViewChildren('navButton') private readonly navButtons?: QueryList<ElementRef<HTMLButtonElement>>;
 
-  readonly items: NavItem[] = [
-    { label: 'Inicio', href: '#inicio', icon: 'home' },
-    { label: 'Acerca', href: '#acerca', icon: 'user' },
-    { label: 'Tecnologias', href: '#tecnologias', icon: 'tech' },
-    { label: 'Proyectos', href: '#proyectos', icon: 'folder' },
-    { label: 'Contacto', href: '#contacto', icon: 'contact' }
-  ];
+  readonly items: NavItem[] = NAV_ITEMS;
   readonly activeHref = signal('#inicio');
   readonly indicatorLeft = signal('0px');
   readonly indicatorWidth = signal('0px');

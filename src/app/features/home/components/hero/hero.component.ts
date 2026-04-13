@@ -1,11 +1,7 @@
 import { Component } from '@angular/core';
+import { SOCIAL_LINKS } from '../../data/social-links.data';
+import { SocialLink } from '../../models/social-link.model';
 import { SectionShellComponent } from '../../../../shared/components/section-shell/section-shell.component';
-
-type SocialLink = {
-  label: string;
-  href: string;
-  icon: string;
-};
 
 @Component({
   selector: 'app-hero',
@@ -14,11 +10,7 @@ type SocialLink = {
   styleUrl: './hero.component.scss'
 })
 export class HeroComponent {
-  readonly socialLinks: SocialLink[] = [
-    { label: 'Instagram', href: 'https://instagram.com', icon: 'instagram' },
-    { label: 'LinkedIn', href: 'https://linkedin.com', icon: 'linkedin' },
-    { label: 'GitHub', href: 'https://github.com', icon: 'github' }
-  ];
+  readonly socialLinks: SocialLink[] = SOCIAL_LINKS;
 
   trackByLabel(_index: number, item: SocialLink): string {
     return item.label;
