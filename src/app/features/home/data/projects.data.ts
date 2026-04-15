@@ -49,7 +49,7 @@ export const PROJECTS: ProjectItem[] = [
       { value: 'Responsive', label: 'mobile' }
     ],
     links: [
-      { label: 'Ver demo', href: 'https://example.com/granito-de-mostaza', variant: 'primary' },
+      { label: 'Ver proyecto', href: 'https://granitodemostaza.netlify.app/', variant: 'primary' },
       { label: 'GitHub', href: 'https://github.com/your-user/granito-de-mostaza', variant: 'secondary' }
     ]
   },
