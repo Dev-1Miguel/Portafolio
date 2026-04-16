@@ -3,7 +3,6 @@ import {
   Component,
   ElementRef,
   HostListener,
-  OnDestroy,
   QueryList,
   ViewChildren,
   signal
@@ -16,7 +15,7 @@ import { NavItem } from '../../models/nav-item.model';
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss'
 })
-export class NavbarComponent implements AfterViewInit, OnDestroy {
+export class NavbarComponent implements AfterViewInit {
   @ViewChildren('navButton') private readonly navButtons?: QueryList<ElementRef<HTMLButtonElement>>;
 
   readonly items: NavItem[] = NAV_ITEMS;
@@ -24,17 +23,12 @@ export class NavbarComponent implements AfterViewInit, OnDestroy {
   readonly indicatorLeft = signal('0px');
   readonly indicatorWidth = signal('0px');
 
-  private observer?: IntersectionObserver;
-  private readonly visibleSections = new Map<string, number>();
+  private sections: Array<{ href: string; element: HTMLElement }> = [];
 
   ngAfterViewInit(): void {
     this.syncIndicator();
     this.navButtons?.changes.subscribe(() => this.syncIndicator());
     this.setupScrollSpy();
-  }
-
-  ngOnDestroy(): void {
-    this.observer?.disconnect();
   }
 
   trackByHref(_index: number, item: NavItem): string {
@@ -56,11 +50,17 @@ export class NavbarComponent implements AfterViewInit, OnDestroy {
 
   @HostListener('window:resize')
   onResize(): void {
+    this.updateActiveSection();
     this.syncIndicator();
   }
 
+  @HostListener('window:scroll')
+  onScroll(): void {
+    this.updateActiveSection();
+  }
+
   private setupScrollSpy(): void {
-    const sections = this.items
+    this.sections = this.items
       .map((item) => ({
         href: item.href,
         element: document.querySelector(item.href)
@@ -69,38 +69,27 @@ export class NavbarComponent implements AfterViewInit, OnDestroy {
         (entry): entry is { href: string; element: HTMLElement } => entry.element instanceof HTMLElement
       );
 
-    if (!sections.length) {
+    if (!this.sections.length) {
       return;
     }
 
-    this.observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          const href = `#${entry.target.id}`;
+    this.updateActiveSection();
+  }
 
-          if (entry.isIntersecting) {
-            this.visibleSections.set(href, entry.intersectionRatio);
-          } else {
-            this.visibleSections.delete(href);
-          }
-        }
+  private updateActiveSection(): void {
+    if (!this.sections.length) {
+      return;
+    }
 
-        const nextHref = [...this.visibleSections.entries()]
-          .sort((left, right) => right[1] - left[1])
-          .at(0)?.[0];
+    const activationOffset = 150;
+    const currentScroll = window.scrollY + activationOffset;
 
-        if (nextHref && nextHref !== this.activeHref()) {
-          this.setActiveItem(nextHref);
-        }
-      },
-      {
-        rootMargin: '-22% 0px -48% 0px',
-        threshold: [0.2, 0.35, 0.5, 0.7]
-      }
-    );
+    const nextSection = this.sections
+      .filter(({ element }) => element.offsetTop <= currentScroll)
+      .at(-1) ?? this.sections[0];
 
-    for (const section of sections) {
-      this.observer.observe(section.element);
+    if (nextSection && nextSection.href !== this.activeHref()) {
+      this.setActiveItem(nextSection.href);
     }
   }
 
