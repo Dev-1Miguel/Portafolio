@@ -1,0 +1,13 @@
+.navbar-shell {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.navbar-shell::-webkit-scrollbar {
+  display: none;
+}
+
+.nav-indicator {
+  transition: transform 300ms ease-out, width 300ms ease-out;
+  will-change: transform, width;
+}

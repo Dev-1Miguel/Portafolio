@@ -3,12 +3,18 @@ import {
   Component,
   ElementRef,
   HostListener,
+  OnDestroy,
   QueryList,
   ViewChildren,
   signal
 } from '@angular/core';
 import { NAV_ITEMS } from '../../data/navigation.data';
 import { NavItem } from '../../models/nav-item.model';
+
+type ActiveIndicator = {
+  left: string;
+  width: string;
+};
 
 @Component({
   selector: 'app-navbar',
@@ -20,15 +26,22 @@ export class NavbarComponent implements AfterViewInit {
 
   readonly items: NavItem[] = NAV_ITEMS;
   readonly activeHref = signal('#inicio');
-  readonly indicatorLeft = signal('0px');
-  readonly indicatorWidth = signal('0px');
+  readonly activeIndicator = signal<ActiveIndicator>({ left: '0px', width: '0px' });
 
   private sections: Array<{ href: string; element: HTMLElement }> = [];
+  private pendingScrollTargetHref: string | null = null;
+  private indicatorFrameId: number | null = null;
 
   ngAfterViewInit(): void {
-    this.syncIndicator();
-    this.navButtons?.changes.subscribe(() => this.syncIndicator());
+    this.scheduleIndicatorSync();
+    this.navButtons?.changes.subscribe(() => this.scheduleIndicatorSync());
     this.setupScrollSpy();
+  }
+
+  ngOnDestroy(): void {
+    if (this.indicatorFrameId !== null) {
+      cancelAnimationFrame(this.indicatorFrameId);
+    }
   }
 
   trackByHref(_index: number, item: NavItem): string {
@@ -42,6 +55,7 @@ export class NavbarComponent implements AfterViewInit {
   selectItem(item: NavItem, index: number): void {
     const target = document.querySelector(item.href);
     if (target instanceof HTMLElement) {
+      this.pendingScrollTargetHref = item.href;
       this.setActiveItem(item.href, index);
       const offsetTop = target.getBoundingClientRect().top + window.scrollY - 120;
       window.scrollTo({ top: offsetTop, behavior: 'smooth' });
@@ -51,7 +65,7 @@ export class NavbarComponent implements AfterViewInit {
   @HostListener('window:resize')
   onResize(): void {
     this.updateActiveSection();
-    this.syncIndicator();
+    this.scheduleIndicatorSync();
   }
 
   @HostListener('window:scroll')
@@ -83,6 +97,9 @@ export class NavbarComponent implements AfterViewInit {
 
     const activationOffset = 150;
     const currentScroll = window.scrollY + activationOffset;
+    if (this.shouldKeepClickedItem(currentScroll)) {
+      return;
+    }
 
     const nextSection = this.sections
       .filter(({ element }) => element.offsetTop <= currentScroll)
@@ -95,7 +112,39 @@ export class NavbarComponent implements AfterViewInit {
 
   private setActiveItem(href: string, activeIndex = this.items.findIndex((item) => item.href === href)): void {
     this.activeHref.set(href);
-    this.syncIndicator(activeIndex);
+    this.scheduleIndicatorSync(activeIndex);
+  }
+
+  private shouldKeepClickedItem(currentScroll: number): boolean {
+    if (!this.pendingScrollTargetHref) {
+      return false;
+    }
+
+    const pendingSection = this.sections.find(({ href }) => href === this.pendingScrollTargetHref);
+    if (!pendingSection) {
+      this.pendingScrollTargetHref = null;
+      return false;
+    }
+
+    if (pendingSection.element.offsetTop <= currentScroll) {
+      this.pendingScrollTargetHref = null;
+      return false;
+    }
+
+    return true;
+  }
+
+  private scheduleIndicatorSync(
+    activeIndex = this.items.findIndex((item) => item.href === this.activeHref())
+  ): void {
+    if (this.indicatorFrameId !== null) {
+      cancelAnimationFrame(this.indicatorFrameId);
+    }
+
+    this.indicatorFrameId = requestAnimationFrame(() => {
+      this.indicatorFrameId = null;
+      this.syncIndicator(activeIndex);
+    });
   }
 
   private syncIndicator(activeIndex = this.items.findIndex((item) => item.href === this.activeHref())): void {
@@ -106,7 +155,9 @@ export class NavbarComponent implements AfterViewInit {
       return;
     }
 
-    this.indicatorLeft.set(`${activeButton.offsetLeft}px`);
-    this.indicatorWidth.set(`${activeButton.offsetWidth}px`);
+    this.activeIndicator.set({
+      left: `${activeButton.offsetLeft}px`,
+      width: `${activeButton.offsetWidth}px`
+    });
   }
 }

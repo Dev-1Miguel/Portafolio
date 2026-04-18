@@ -50,7 +50,7 @@ export const PROJECTS: ProjectItem[] = [
     ],
     links: [
       { label: 'Ver proyecto', href: 'https://granitodemostaza.netlify.app/', variant: 'primary' },
-      { label: 'GitHub', href: 'https://github.com/your-user/granito-de-mostaza', variant: 'secondary' }
+      { label: 'GitHub', href: 'https://github.com/Dev-1Miguel/GranitoMostazaFront-End', variant: 'secondary' }
     ]
   },
   {
