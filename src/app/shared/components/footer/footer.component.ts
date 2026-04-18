@@ -11,6 +11,12 @@ export class FooterComponent {
     (link) => link.icon === 'linkedin' || link.icon === 'github'
   );
 
+  readonly iconClasses: Record<string, string> = {
+    linkedin: 'pi pi-linkedin',
+    github: 'pi pi-github',
+    instagram: 'pi pi-instagram'
+  };
+
   trackByLabel(_index: number, link: SocialLink): string {
     return link.label;
   }

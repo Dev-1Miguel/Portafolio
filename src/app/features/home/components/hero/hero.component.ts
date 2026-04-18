@@ -9,7 +9,7 @@ import { SectionShellComponent } from '../../../../shared/components/section-she
 })
 export class HeroComponent implements OnInit, OnDestroy {
   readonly heroTitle = 'Ingeniero de Software Junior';
-  readonly resumeUrl = 'assets/CV-Miguel-Loor.pdf';
+  readonly resumeUrl = 'assets/CV_Miguel_Loor_Vera.pdf';
 
   readonly typedTitle = signal('');
   readonly typingComplete = signal(false);

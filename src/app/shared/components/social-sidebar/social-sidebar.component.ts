@@ -11,6 +11,12 @@ export class SocialSidebarComponent {
     (link) => link.icon === 'linkedin' || link.icon === 'github'
   );
 
+  readonly iconClasses: Record<string, string> = {
+    linkedin: 'pi pi-linkedin',
+    github: 'pi pi-github',
+    instagram: 'pi pi-instagram'
+  };
+
   readonly toneClasses: Record<string, string> = {
     linkedin: 'bg-[#0A66C2] text-white hover:bg-[#0958a5]',
     github: 'bg-zinc-950 text-white hover:bg-zinc-800'

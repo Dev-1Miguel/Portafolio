@@ -25,6 +25,14 @@ export class NavbarComponent implements AfterViewInit {
   @ViewChildren('navButton') private readonly navButtons?: QueryList<ElementRef<HTMLButtonElement>>;
 
   readonly items: NavItem[] = NAV_ITEMS;
+  readonly iconClasses: Record<string, string> = {
+    home: 'pi pi-home',
+    user: 'pi pi-user',
+    folder: 'pi pi-folder',
+    tech: 'pi pi-code',
+    experience: 'pi pi-briefcase',
+    contact: 'pi pi-envelope'
+  };
   readonly activeHref = signal('#inicio');
   readonly activeIndicator = signal<ActiveIndicator>({ left: '0px', width: '0px' });
 
