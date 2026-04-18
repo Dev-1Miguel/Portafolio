@@ -57,7 +57,7 @@ export class NavbarComponent implements AfterViewInit {
     if (target instanceof HTMLElement) {
       this.pendingScrollTargetHref = item.href;
       this.setActiveItem(item.href, index);
-      const offsetTop = target.getBoundingClientRect().top + window.scrollY - 120;
+      const offsetTop = target.getBoundingClientRect().top + window.scrollY - 80;
       window.scrollTo({ top: offsetTop, behavior: 'smooth' });
     }
   }
@@ -95,15 +95,15 @@ export class NavbarComponent implements AfterViewInit {
       return;
     }
 
-    const activationOffset = 150;
-    const currentScroll = window.scrollY + activationOffset;
-    if (this.shouldKeepClickedItem(currentScroll)) {
+    const viewportAnchor = Math.max(120, window.innerHeight * 0.35);
+    if (this.shouldKeepClickedItem(viewportAnchor)) {
       return;
     }
 
-    const nextSection = this.sections
-      .filter(({ element }) => element.offsetTop <= currentScroll)
-      .at(-1) ?? this.sections[0];
+    const nextSection =
+      this.findSectionAtViewportAnchor(viewportAnchor) ??
+      this.findClosestSectionToViewportAnchor(viewportAnchor) ??
+      this.sections[0];
 
     if (nextSection && nextSection.href !== this.activeHref()) {
       this.setActiveItem(nextSection.href);
@@ -115,7 +115,7 @@ export class NavbarComponent implements AfterViewInit {
     this.scheduleIndicatorSync(activeIndex);
   }
 
-  private shouldKeepClickedItem(currentScroll: number): boolean {
+  private shouldKeepClickedItem(viewportAnchor: number): boolean {
     if (!this.pendingScrollTargetHref) {
       return false;
     }
@@ -126,12 +126,35 @@ export class NavbarComponent implements AfterViewInit {
       return false;
     }
 
-    if (pendingSection.element.offsetTop <= currentScroll) {
+    const { top, bottom } = pendingSection.element.getBoundingClientRect();
+    if (top <= viewportAnchor && bottom > viewportAnchor) {
       this.pendingScrollTargetHref = null;
       return false;
     }
 
     return true;
+  }
+
+  private findSectionAtViewportAnchor(viewportAnchor: number): { href: string; element: HTMLElement } | null {
+    return (
+      this.sections.find(({ element }) => {
+        const { top, bottom } = element.getBoundingClientRect();
+        return top <= viewportAnchor && bottom > viewportAnchor;
+      }) ?? null
+    );
+  }
+
+  private findClosestSectionToViewportAnchor(
+    viewportAnchor: number
+  ): { href: string; element: HTMLElement } | null {
+    return this.sections.reduce<{ href: string; element: HTMLElement } | null>((closest, section) => {
+      const distance = Math.abs(section.element.getBoundingClientRect().top - viewportAnchor);
+      const closestDistance = closest
+        ? Math.abs(closest.element.getBoundingClientRect().top - viewportAnchor)
+        : Number.POSITIVE_INFINITY;
+
+      return distance < closestDistance ? section : closest;
+    }, null);
   }
 
   private scheduleIndicatorSync(

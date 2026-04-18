@@ -6,11 +6,12 @@ import { ContactComponent } from '../../features/home/components/contact/contact
 import { ProjectsComponent } from "../../features/home/components/projects/projects.component";
 import { FooterComponent } from '../../shared/components/footer/footer.component';
 import { NavbarComponent } from '../../shared/components/navbar/navbar.component';
+import { SocialSidebarComponent } from '../../shared/components/social-sidebar/social-sidebar.component';
 
 @Component({
   selector: 'app-main-layout',
   standalone: true,
-  imports: [NavbarComponent, HeroComponent, TechnologiesComponent, ProjectsComponent, ExperienceComponent, ContactComponent, FooterComponent],
+  imports: [NavbarComponent, SocialSidebarComponent, HeroComponent, TechnologiesComponent, ProjectsComponent, ExperienceComponent, ContactComponent, FooterComponent],
   templateUrl: './main-layout.html'
 })
 export class MainLayoutComponent {}

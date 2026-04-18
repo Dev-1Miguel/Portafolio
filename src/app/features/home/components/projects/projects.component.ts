@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { SectionShellComponent } from '../../../../shared/components/section-shell/section-shell.component';
 import { PROJECTS } from '../../data/projects.data';
 import { ProjectItem, ProjectLink, ProjectTechnology } from '../../models/project.model';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-projects',
-  imports: [SectionShellComponent],
+  imports: [SectionShellComponent, NgClass],
   templateUrl: './projects.component.html'
 })
 export class ProjectsComponent {
