@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { TECHNOLOGY_CATEGORIES } from '../../data/technologies.data';
 import { TechnologyCategory, TechnologyItem } from '../../models/technology-category.model';
 import { SectionShellComponent } from '../../../../shared/components/section-shell/section-shell.component';
+import { RevealOnScrollDirective } from '../../../../shared/directives/reveal-on-scroll.directive';
 
 @Component({
   selector: 'app-technologies',
-  imports: [SectionShellComponent],
+  imports: [SectionShellComponent, RevealOnScrollDirective],
   templateUrl: './technologies.component.html'
 })
 export class TechnologiesComponent {

@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { SectionShellComponent } from '../../../../shared/components/section-shell/section-shell.component';
+import { RevealOnScrollDirective } from '../../../../shared/directives/reveal-on-scroll.directive';
 
 @Component({
   selector: 'app-contact',
-  imports: [SectionShellComponent],
+  imports: [SectionShellComponent, RevealOnScrollDirective],
   templateUrl: './contact.component.html'
 })
 export class ContactComponent {

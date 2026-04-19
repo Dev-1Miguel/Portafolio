@@ -1,6 +1,6 @@
 <app-section-shell sectionId="proyectos" extraClasses="min-h-[140vh]">
   <div class="mx-auto flex w-full max-w-6xl flex-1 flex-col justify-start space-y-8">
-    <div class="mx-auto max-w-3xl space-y-4 text-center">
+    <div class="mx-auto max-w-3xl space-y-4 text-center" appRevealOnScroll [revealDelay]="40">
       <div class="space-y-2">
         <h2 class="text-4xl font-black tracking-[-0.04em] text-zinc-950 sm:text-5xl">
           PROYECTOS DESTACADOS
@@ -13,8 +13,11 @@
     </div>
 
     <div class="grid grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-8">
-      @for (project of projects; track trackByProject($index, project)) {
+      @for (project of projects; track trackByProject($index, project); let projectIndex = $index) {
         <article
+          appRevealOnScroll
+          revealVariant="scale"
+          [revealDelay]="120 + projectIndex * 90"
           class="group overflow-hidden rounded-[2rem] border border-white/80 bg-white/85 shadow-[0_18px_48px_rgba(15,23,42,0.08)] ring-1 ring-zinc-950/5 backdrop-blur-sm transition duration-300 hover:-translate-y-2 hover:shadow-[0_28px_70px_rgba(15,23,42,0.14)]"
         >
           <div class="relative overflow-hidden border-b border-zinc-100 p-4 sm:p-5">

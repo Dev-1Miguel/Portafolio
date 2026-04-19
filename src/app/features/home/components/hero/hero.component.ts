@@ -1,10 +1,11 @@
 import { Component, OnDestroy, OnInit, inject, signal } from '@angular/core';
 import { SectionShellComponent } from '../../../../shared/components/section-shell/section-shell.component';
+import { RevealOnScrollDirective } from '../../../../shared/directives/reveal-on-scroll.directive';
 import { SectionNavigationService } from '../../../../shared/services/section-navigation.service';
 
 @Component({
   selector: 'app-hero',
-  imports: [SectionShellComponent],
+  imports: [SectionShellComponent, RevealOnScrollDirective],
   templateUrl: './hero.component.html',
   styleUrl: './hero.component.scss'
 })

@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { SectionShellComponent } from '../../../../shared/components/section-shell/section-shell.component';
+import { RevealOnScrollDirective } from '../../../../shared/directives/reveal-on-scroll.directive';
 import { EXPERIENCE_ITEMS } from '../../data/experience.data';
 import { ExperienceItem, ExperienceKind } from '../../models/experience.model';
 
 @Component({
   selector: 'app-experience',
-  imports: [SectionShellComponent],
+  imports: [SectionShellComponent, RevealOnScrollDirective],
   templateUrl: './experience.component.html'
 })
 export class ExperienceComponent {

@@ -1,6 +1,6 @@
 <app-section-shell sectionId="experiencia" extraClasses="min-h-[120vh]">
   <div class="mx-auto flex w-full max-w-5xl flex-1 flex-col justify-start space-y-10">
-    <div class="mx-auto max-w-3xl space-y-4 text-center">
+    <div class="mx-auto max-w-3xl space-y-4 text-center" appRevealOnScroll [revealDelay]="40">
       <div class="space-y-3">
         <h2 class="text-4xl font-black tracking-[-0.04em] text-zinc-950 sm:text-5xl">
           EXPERIENCIA
@@ -16,8 +16,13 @@
       <div class="absolute bottom-0 left-5 top-0 w-px bg-gradient-to-b from-zinc-200 via-zinc-300 to-zinc-200"></div>
 
       <div class="space-y-8 sm:space-y-10">
-        @for (item of items; track trackByPeriod($index, item)) {
-          <article class="group relative grid grid-cols-[2.5rem_1fr] items-start gap-4 sm:grid-cols-[2.75rem_1fr] sm:gap-6">
+        @for (item of items; track trackByPeriod($index, item); let itemIndex = $index) {
+          <article
+            class="group relative grid grid-cols-[2.5rem_1fr] items-start gap-4 sm:grid-cols-[2.75rem_1fr] sm:gap-6"
+            appRevealOnScroll
+            [revealVariant]="itemIndex % 2 === 0 ? 'left' : 'right'"
+            [revealDelay]="120 + itemIndex * 110"
+          >
             <div
               class="relative flex h-10 w-10 items-center justify-center rounded-full border border-white/80 bg-white shadow-[0_10px_28px_rgba(15,23,42,0.08)]"
             >

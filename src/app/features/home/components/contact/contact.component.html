@@ -8,12 +8,16 @@
     <div class="relative w-full">
       
       <!-- título sección -->
-      <h2 class="mb-4 text-sm font-semibold uppercase tracking-[0.22em] text-zinc-500">
+      <h2 class="mb-4 text-sm font-semibold uppercase tracking-[0.22em] text-zinc-500" appRevealOnScroll>
         Contacto
       </h2>
 
       <!-- card -->
-      <div class="w-full max-w-xl rounded-[2rem] border border-white/80 bg-white/70 px-6 py-8 shadow-[0_24px_70px_rgba(15,23,42,0.10)] ring-1 ring-zinc-950/5 backdrop-blur-xl">
+      <div
+        class="w-full max-w-xl rounded-[2rem] border border-white/80 bg-white/70 px-6 py-8 shadow-[0_24px_70px_rgba(15,23,42,0.10)] ring-1 ring-zinc-950/5 backdrop-blur-xl"
+        appRevealOnScroll
+        [revealDelay]="110"
+      >
 
         <h3 class="text-3xl font-black tracking-[-0.04em] text-zinc-950 md:text-4xl">
           ¿Hablamos?
@@ -27,6 +31,9 @@
         <a
           [attr.href]="contactMailto"
           class="relative z-10 mt-6 inline-flex items-center justify-center gap-2 rounded-full bg-black px-5 py-3 text-sm font-medium !text-white no-underline transition hover:opacity-90 focus:outline-none focus:ring-4 focus:ring-zinc-900/10"
+          appRevealOnScroll
+          revealVariant="scale"
+          [revealDelay]="220"
         >
           <span class="!text-white">Contáctame</span>
 
