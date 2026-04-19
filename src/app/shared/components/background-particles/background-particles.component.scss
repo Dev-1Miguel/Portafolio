@@ -1,0 +1,11 @@
+:host {
+  inset: 0;
+  pointer-events: none;
+  position: fixed;
+  z-index: -1;
+}
+
+.particles-host {
+  height: 100%;
+  width: 100%;
+}
