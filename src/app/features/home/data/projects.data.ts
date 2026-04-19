@@ -58,9 +58,11 @@ export const PROJECTS: ProjectItem[] = [
     title: 'Proximo proyecto',
     description:
       'Espacio reservado para tu siguiente proyecto destacado, manteniendo la misma presentacion visual moderna y profesional del portafolio.',
-    previewTag: 'Portfolio',
-    previewNote: 'En preparacion',
+    previewTag: 'Proximamente',
+    previewNote: 'Proximamente',
     previewClasses: 'from-sky-100 via-white to-cyan-50 ring-sky-100/80',
+    imageUrl: 'assets/Proximamente.jpg',
+    imageAlt: 'Proximamente',
     technologies: [
       {
         name: 'Angular',

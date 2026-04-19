@@ -25,13 +25,14 @@
       </p>
 
       <div class="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:flex-wrap md:items-start">
-        <a
-          href="#proyectos"
+        <button
+          type="button"
           class="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-zinc-950 px-5 py-3 text-sm font-semibold text-white shadow-[0_14px_34px_rgba(15,23,42,0.16)] transition duration-300 hover:-translate-y-0.5 hover:bg-zinc-800 hover:text-white hover:shadow-[0_18px_40px_rgba(15,23,42,0.18)] focus:outline-none focus:ring-4 focus:ring-zinc-900/10"
+          (click)="goToProjects()"
         >
           <span class="text-white">Proyectos</span>
           <i class="pi pi-arrow-right text-[18px] text-white" aria-hidden="true"></i>
-        </a>
+        </button>
 
         <a
           [href]="resumeUrl"

@@ -10,7 +10,8 @@ export interface TechnologyItem {
     | 'sqlserver'
     | 'postgresql'
     | 'git'
-    | 'figma';
+    | 'figma'
+    | 'azure';
   label: string;
 }
 

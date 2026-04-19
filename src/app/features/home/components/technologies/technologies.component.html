@@ -1,7 +1,6 @@
 <app-section-shell sectionId="tecnologias" extraClasses="min-h-[100vh]">
-  <div class="mx-auto flex w-full max-w-7xl flex-1 flex-col justify-start space-y-8">
+  <div class="mx-auto flex w-full max-w-6xl flex-1 flex-col justify-start space-y-12">
 
-    <!-- Header -->
     <div class="mx-auto max-w-3xl space-y-4 text-center">
       <div class="space-y-3">
         <h2 class="text-4xl font-black tracking-[-0.04em] text-zinc-950 sm:text-5xl">
@@ -14,28 +13,18 @@
       </div>
     </div>
 
-    <!-- GRID DE COLUMNAS -->
-    <div class="grid grid-cols-1 divide-y divide-zinc-200 md:grid-cols-2 md:divide-x md:divide-y-0 lg:grid-cols-4">
-
+    <div class="grid gap-x-12 gap-y-10 md:grid-cols-2">
       @for (category of categories; track trackByTitle($index, category)) {
-        <section class="flex flex-col items-center space-y-6 px-6 py-4 text-center">
+        <section class="space-y-5">
+          <h3 class="text-2xl font-bold tracking-[-0.03em] text-zinc-950">
+            {{ category.title }}
+          </h3>
 
-          <!-- Título -->
-          <div class="w-full space-y-3">
-            <h3 class="text-xl font-semibold tracking-[-0.03em] text-zinc-950">
-              {{ category.title }}
-            </h3>
-          </div>
-
-          <!-- GRID INTERNO -->
-          <div class="grid w-full grid-cols-2 justify-items-center gap-x-6 gap-y-8">
-
+          <div class="flex flex-wrap gap-4 sm:gap-5">
             @for (technology of category.technologies; track trackByTechnology($index, technology)) {
-              <article class="group flex flex-col items-center text-center">
-
-                <!-- ICONO -->
+              <article class="group inline-flex items-center gap-3 rounded-2xl pr-3 transition duration-300 hover:-translate-y-1">
                 <div
-                  [class]="'flex h-16 w-16 items-center justify-center rounded-2xl transition duration-300 group-hover:-translate-y-1 ' + iconShellClasses[technology.key]"
+                  [class]="'flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl transition duration-300 group-hover:scale-105 ' + iconShellClasses[technology.key]"
                 >
                   @switch (technology.key) {
                     @case ('csharp') {
@@ -81,20 +70,21 @@
                     @case ('figma') {
                       <i class="devicon-figma-plain colored text-3xl"></i>
                     }
+
+                    @case ('azure') {
+                      <i class="devicon-azure-plain colored text-3xl"></i>
+                    }
                   }
                 </div>
 
-                <!-- LABEL -->
-                <p class="mt-2 text-sm font-semibold text-zinc-900">
+                <p class="text-sm font-semibold text-zinc-900">
                   {{ technology.label }}
                 </p>
               </article>
             }
-
           </div>
         </section>
       }
-
     </div>
   </div>
 </app-section-shell>

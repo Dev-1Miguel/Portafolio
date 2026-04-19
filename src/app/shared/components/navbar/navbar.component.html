@@ -14,7 +14,7 @@
         [class.text-white]="isActive(item.href)"
         [class.text-zinc-700]="!isActive(item.href)"
         [class.hover:bg-zinc-900/5]="!isActive(item.href)"
-        (click)="selectItem(item, $index)"
+        (click)="selectItem(item)"
       >
         <i
           [class]="(iconClasses[item.icon] || 'pi pi-arrow-up-right') + ' text-sm shrink-0'"

@@ -1,5 +1,6 @@
-import { Component, OnDestroy, OnInit, signal } from '@angular/core';
+import { Component, OnDestroy, OnInit, inject, signal } from '@angular/core';
 import { SectionShellComponent } from '../../../../shared/components/section-shell/section-shell.component';
+import { SectionNavigationService } from '../../../../shared/services/section-navigation.service';
 
 @Component({
   selector: 'app-hero',
@@ -8,6 +9,8 @@ import { SectionShellComponent } from '../../../../shared/components/section-she
   styleUrl: './hero.component.scss'
 })
 export class HeroComponent implements OnInit, OnDestroy {
+  private readonly sectionNavigation = inject(SectionNavigationService);
+
   readonly heroTitle = 'Ingeniero de Software Junior';
   readonly resumeUrl = 'assets/CV_Miguel_Loor_Vera.pdf';
 
@@ -49,5 +52,9 @@ export class HeroComponent implements OnInit, OnDestroy {
     if (this.typingIntervalId !== null) {
       clearInterval(this.typingIntervalId);
     }
+  }
+
+  goToProjects(): void {
+    this.sectionNavigation.navigateToSection('#proyectos');
   }
 }

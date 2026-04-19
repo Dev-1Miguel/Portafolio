@@ -22,7 +22,8 @@ export class TechnologiesComponent {
     sqlserver: 'bg-zinc-100 text-zinc-700 ring-1 ring-zinc-200',
     postgresql: 'bg-indigo-50 text-indigo-600 ring-1 ring-indigo-100',
     git: 'bg-orange-50 text-orange-600 ring-1 ring-orange-100',
-    figma: 'bg-pink-50 text-pink-600 ring-1 ring-pink-100'
+    figma: 'bg-pink-50 text-pink-600 ring-1 ring-pink-100',
+    azure: 'bg-sky-50 text-sky-600 ring-1 ring-sky-100'
   };
 
   trackByTitle(_index: number, item: TechnologyCategory): string {
