@@ -1,12 +1,12 @@
-<app-section-shell sectionId="proyectos" extraClasses="min-h-[140vh]">
-  <div class="mx-auto flex w-full max-w-6xl flex-1 flex-col justify-start space-y-8">
+<app-section-shell sectionId="proyectos" extraClasses="min-h-[100vh]">
+  <div class="mx-auto flex w-full max-w-6xl flex-1 flex-col justify-start space-y-8 sm:space-y-10">
     <div class="mx-auto max-w-3xl space-y-4 text-center" appRevealOnScroll [revealDelay]="40">
       <div class="space-y-2">
-        <h2 class="text-4xl font-black tracking-[-0.04em] text-zinc-950 sm:text-5xl">
+        <h2 class="text-3xl font-black tracking-[-0.04em] text-zinc-950 sm:text-4xl md:text-5xl">
           PROYECTOS DESTACADOS
         </h2>
 
-        <p class="text-base leading-8 text-zinc-500 sm:text-lg">
+        <p class="text-[15px] leading-7 text-zinc-500 sm:text-base sm:leading-8 md:text-lg">
           Una seleccion de interfaces y sistemas pensados para transmitir claridad, rendimiento y una experiencia visual cuidada.
         </p>
       </div>
@@ -18,28 +18,28 @@
           appRevealOnScroll
           revealVariant="scale"
           [revealDelay]="120 + projectIndex * 90"
-          class="group overflow-hidden rounded-[2rem] border border-white/80 bg-white/85 shadow-[0_18px_48px_rgba(15,23,42,0.08)] ring-1 ring-zinc-950/5 backdrop-blur-sm transition duration-300 hover:-translate-y-2 hover:shadow-[0_28px_70px_rgba(15,23,42,0.14)]"
+          class="group overflow-hidden rounded-[1.75rem] border border-white/80 bg-white/85 shadow-[0_18px_48px_rgba(15,23,42,0.08)] ring-1 ring-zinc-950/5 backdrop-blur-sm transition duration-300 hover:-translate-y-2 hover:shadow-[0_28px_70px_rgba(15,23,42,0.14)] sm:rounded-[2rem]"
         >
-          <div class="relative overflow-hidden border-b border-zinc-100 p-4 sm:p-5">
+          <div class="relative overflow-hidden border-b border-zinc-100 p-3.5 sm:p-5">
             <div
-              [class]="'relative overflow-hidden rounded-[1.75rem] bg-gradient-to-br p-4 ring-1 sm:p-5 ' + project.previewClasses"
+              [class]="'relative overflow-hidden rounded-[1.4rem] bg-gradient-to-br p-3.5 ring-1 sm:rounded-[1.75rem] sm:p-5 ' + project.previewClasses"
             >
               @if (project.imageUrl) {
-                <div class="relative overflow-hidden rounded-[1.6rem] border border-white/75 bg-white/70 shadow-[0_16px_40px_rgba(15,23,42,0.08)]">
+                <div class="relative overflow-hidden rounded-[1.25rem] border border-white/75 bg-white/70 shadow-[0_16px_40px_rgba(15,23,42,0.08)] sm:rounded-[1.6rem]">
                   <img
                     [src]="project.imageUrl"
                     [alt]="project.imageAlt || project.title"
-                    class="aspect-[16/9] w-full object-cover object-center transition duration-500 group-hover:scale-[1.03]"
+                    class="aspect-[16/10] w-full object-cover object-center transition duration-500 group-hover:scale-[1.03] sm:aspect-[16/9]"
                   />
 
                   <div class="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-zinc-950/55 via-zinc-950/10 to-transparent"></div>
 
-                  <div class="absolute left-4 right-4 top-4 flex items-start justify-between gap-4">
-                    <span class="inline-flex rounded-full bg-zinc-950/90 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.24em] text-white backdrop-blur">
+                  <div class="absolute left-3 right-3 top-3 flex items-start justify-between gap-2 sm:left-4 sm:right-4 sm:top-4 sm:gap-4">
+                    <span class="inline-flex rounded-full bg-zinc-950/90 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-white backdrop-blur sm:px-3 sm:text-[11px] sm:tracking-[0.24em]">
                       {{ project.previewTag }}
                     </span>
 
-                    <span class="rounded-full bg-white/88 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-zinc-700 shadow-sm backdrop-blur">
+                    <span class="rounded-full bg-white/88 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-zinc-700 shadow-sm backdrop-blur sm:px-3 sm:text-[11px] sm:tracking-[0.18em]">
                       {{ project.previewNote }}
                     </span>
                   </div>
@@ -48,18 +48,18 @@
                 <div class="pointer-events-none absolute -right-12 -top-12 h-32 w-32 rounded-full bg-white/50 blur-3xl"></div>
                 <div class="pointer-events-none absolute -bottom-10 -left-8 h-28 w-28 rounded-full bg-white/45 blur-3xl"></div>
 
-                <div class="relative mx-auto flex min-h-64 max-w-sm flex-col justify-between rounded-[1.6rem] border border-white/75 bg-white/80 p-5 text-left shadow-[0_16px_40px_rgba(15,23,42,0.08)] backdrop-blur">
+                <div class="relative mx-auto flex min-h-56 max-w-sm flex-col justify-between rounded-[1.35rem] border border-white/75 bg-white/80 p-4 text-left shadow-[0_16px_40px_rgba(15,23,42,0.08)] backdrop-blur sm:min-h-64 sm:rounded-[1.6rem] sm:p-5">
                   <div class="flex items-center justify-between gap-4">
-                    <span class="inline-flex rounded-full bg-zinc-950 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.24em] text-white">
+                    <span class="inline-flex rounded-full bg-zinc-950 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-white sm:px-3 sm:text-[11px] sm:tracking-[0.24em]">
                       {{ project.previewTag }}
                     </span>
 
-                    <span class="text-xs font-medium uppercase tracking-[0.18em] text-zinc-500">
+                    <span class="text-[10px] font-medium uppercase tracking-[0.14em] text-zinc-500 sm:text-xs sm:tracking-[0.18em]">
                       {{ project.previewNote }}
                     </span>
                   </div>
 
-                  <div class="space-y-3 py-5">
+                  <div class="space-y-3 py-4 sm:py-5">
                     <div class="h-3 w-24 rounded-full bg-zinc-200"></div>
                     <div class="h-3 w-full rounded-full bg-zinc-200/80"></div>
                     <div class="h-3 w-4/5 rounded-full bg-zinc-200/70"></div>
@@ -93,13 +93,13 @@
           </div>
           </div>
 
-          <div class="space-y-4 px-5 py-5 text-center sm:px-6">
+          <div class="space-y-4 px-4 py-4 text-center sm:px-6 sm:py-5">
             <div class="space-y-2">
-              <h3 class="text-2xl font-bold tracking-[-0.04em] text-zinc-950">
+              <h3 class="text-xl font-bold tracking-[-0.04em] text-zinc-950 sm:text-2xl">
                 {{ project.title }}
               </h3>
 
-              <p class="mx-auto max-w-xl text-base leading-7 text-zinc-500">
+              <p class="mx-auto max-w-xl text-[15px] leading-6 text-zinc-500 sm:text-base sm:leading-7">
                 {{ project.description }}
               </p>
             </div>
@@ -107,7 +107,7 @@
             <div class="flex flex-wrap justify-center gap-2">
               @for (technology of project.technologies; track trackByTechnology($index, technology)) {
                 <div
-                  [class]="'inline-flex items-center gap-2 rounded-full border px-3.5 py-2 text-sm font-semibold shadow-sm ' + technology.toneClasses"
+                  [class]="'inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-[13px] font-semibold shadow-sm sm:px-3.5 sm:py-2 sm:text-sm ' + technology.toneClasses"
                 >
                   <i [class]="technology.iconClass + ' text-lg'"></i>
                   <span>{{ technology.name }}</span>
@@ -115,7 +115,7 @@
               }
             </div>
 
-            <div class="flex flex-wrap items-center justify-center gap-2">
+            <div class="flex flex-col items-stretch justify-center gap-2 sm:flex-row sm:flex-wrap sm:items-center">
               @for (link of project.links; track trackByLink($index, link)) {
                 @if (link.variant === 'primary') {
                   <a
@@ -123,7 +123,7 @@
                     target="_blank"
                     rel="noreferrer"
                     aria-label="Ver proyecto"
-                    class="inline-flex h-11 min-w-[140px] items-center justify-center gap-2.5 rounded-xl bg-zinc-950 px-5 text-sm font-semibold text-white shadow-[0_10px_24px_rgba(15,23,42,0.16)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-zinc-800"
+                    class="inline-flex h-11 w-full items-center justify-center gap-2.5 rounded-xl bg-zinc-950 px-5 text-sm font-semibold text-white shadow-[0_10px_24px_rgba(15,23,42,0.16)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-zinc-800 sm:min-w-[140px] sm:w-auto"
                   >
                     <i class="pi pi-external-link h-5 w-5 shrink-0 text-white" aria-hidden="true"></i>
 
@@ -135,7 +135,7 @@
                     target="_blank"
                     rel="noreferrer"
                     aria-label="GitHub"
-                    class="inline-flex h-11 min-w-[140px] items-center justify-center gap-2.5 rounded-xl border border-zinc-200 bg-white px-5 text-sm font-semibold text-zinc-700 shadow-[0_6px_16px_rgba(15,23,42,0.06)] transition-all duration-300 hover:-translate-y-0.5 hover:border-zinc-300 hover:bg-zinc-50 hover:text-zinc-950"
+                    class="inline-flex h-11 w-full items-center justify-center gap-2.5 rounded-xl border border-zinc-200 bg-white px-5 text-sm font-semibold text-zinc-700 shadow-[0_6px_16px_rgba(15,23,42,0.06)] transition-all duration-300 hover:-translate-y-0.5 hover:border-zinc-300 hover:bg-zinc-50 hover:text-zinc-950 sm:min-w-[140px] sm:w-auto"
                   >
                     <i class="pi pi-github h-5 w-5 shrink-0 text-zinc-700" aria-hidden="true"></i>
 

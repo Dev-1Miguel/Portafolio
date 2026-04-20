@@ -1,6 +1,7 @@
 .navbar-shell {
   -ms-overflow-style: none;
   scrollbar-width: none;
+  scroll-padding-inline: 0.75rem;
 }
 
 .navbar-shell::-webkit-scrollbar {

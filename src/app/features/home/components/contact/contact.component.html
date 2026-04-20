@@ -1,5 +1,5 @@
-<app-section-shell sectionId="contacto" extraClasses="min-h-[80vh]">
-  <div class="relative w-full max-w-2xl md:ml-16 lg:ml-24">
+<app-section-shell sectionId="contacto" extraClasses="min-h-[72vh] sm:min-h-[80vh]">
+  <div class="relative mx-auto w-full max-w-2xl md:mx-0 md:ml-16 lg:ml-24">
     
     <!-- efectos -->
     <div class="pointer-events-none absolute -left-10 top-10 h-24 w-24 rounded-full bg-orange-100/70 blur-3xl"></div>
@@ -14,12 +14,12 @@
 
       <!-- card -->
       <div
-        class="w-full max-w-xl rounded-[2rem] border border-white/80 bg-white/70 px-6 py-8 shadow-[0_24px_70px_rgba(15,23,42,0.10)] ring-1 ring-zinc-950/5 backdrop-blur-xl"
+        class="w-full max-w-xl rounded-[1.75rem] border border-white/80 bg-white/70 px-5 py-6 shadow-[0_24px_70px_rgba(15,23,42,0.10)] ring-1 ring-zinc-950/5 backdrop-blur-xl sm:rounded-[2rem] sm:px-6 sm:py-8"
         appRevealOnScroll
         [revealDelay]="110"
       >
 
-        <h3 class="text-3xl font-black tracking-[-0.04em] text-zinc-950 md:text-4xl">
+        <h3 class="text-2xl font-black tracking-[-0.04em] text-zinc-950 sm:text-3xl md:text-4xl">
           ¿Hablamos?
         </h3>
 
@@ -30,7 +30,7 @@
         <!-- botón mailto -->
         <a
           [attr.href]="contactMailto"
-          class="relative z-10 mt-6 inline-flex items-center justify-center gap-2 rounded-full bg-black px-5 py-3 text-sm font-medium !text-white no-underline transition hover:opacity-90 focus:outline-none focus:ring-4 focus:ring-zinc-900/10"
+          class="relative z-10 mt-6 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-black px-5 py-3 text-sm font-medium !text-white no-underline transition hover:opacity-90 focus:outline-none focus:ring-4 focus:ring-zinc-900/10 sm:w-auto"
           appRevealOnScroll
           revealVariant="scale"
           [revealDelay]="220"
@@ -44,7 +44,7 @@
         </a>
 
         <!-- fallback -->
-        <p class="mt-4 text-sm text-zinc-500">
+        <p class="mt-4 text-sm leading-6 text-zinc-500">
           o escríbeme directamente a
           <span class="font-medium text-zinc-900">loormv18@gmail.com</span>
         </p>

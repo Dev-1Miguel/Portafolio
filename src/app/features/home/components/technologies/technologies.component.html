@@ -1,35 +1,35 @@
 <app-section-shell sectionId="tecnologias" extraClasses="min-h-[100vh]">
-  <div class="mx-auto flex w-full max-w-6xl flex-1 flex-col justify-start space-y-12">
+  <div class="mx-auto flex w-full max-w-6xl flex-1 flex-col justify-start space-y-10 sm:space-y-12">
 
     <div class="mx-auto max-w-3xl space-y-4 text-center" appRevealOnScroll [revealDelay]="40">
       <div class="space-y-3">
-        <h2 class="text-4xl font-black tracking-[-0.04em] text-zinc-950 sm:text-5xl">
+        <h2 class="text-3xl font-black tracking-[-0.04em] text-zinc-950 sm:text-4xl md:text-5xl">
           STACK Y HERRAMIENTAS
         </h2>
 
-        <p class="text-base leading-8 text-zinc-500 sm:text-lg">
+        <p class="text-[15px] leading-7 text-zinc-500 sm:text-base sm:leading-8 md:text-lg">
           Tecnologias con las que construyo experiencias web limpias, escalables y enfocadas en producto.
         </p>
       </div>
     </div>
 
-    <div class="grid gap-x-12 gap-y-10 md:grid-cols-2">
+    <div class="grid gap-x-10 gap-y-8 md:grid-cols-2 md:gap-y-10">
       @for (category of categories; track trackByTitle($index, category); let categoryIndex = $index) {
-        <section class="space-y-5" appRevealOnScroll [revealDelay]="110 + categoryIndex * 90">
-          <h3 class="text-2xl font-bold tracking-[-0.03em] text-zinc-950">
+        <section class="space-y-4 sm:space-y-5" appRevealOnScroll [revealDelay]="110 + categoryIndex * 90">
+          <h3 class="text-xl font-bold tracking-[-0.03em] text-zinc-950 sm:text-2xl">
             {{ category.title }}
           </h3>
 
-          <div class="flex flex-wrap gap-4 sm:gap-5">
+          <div class="flex flex-wrap gap-3.5 sm:gap-4">
             @for (technology of category.technologies; track trackByTechnology($index, technology); let technologyIndex = $index) {
               <article
-                class="group inline-flex items-center gap-3 rounded-2xl pr-3 transition duration-300 hover:-translate-y-1"
+                class="group inline-flex min-h-[52px] max-w-full items-center gap-3 rounded-2xl pr-2 transition duration-300 hover:-translate-y-1 sm:pr-3"
                 appRevealOnScroll
                 revealVariant="scale"
                 [revealDelay]="170 + categoryIndex * 70 + technologyIndex * 45"
               >
                 <div
-                  [class]="'flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl transition duration-300 group-hover:scale-105 ' + iconShellClasses[technology.key]"
+                  [class]="'flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl transition duration-300 group-hover:scale-105 sm:h-14 sm:w-14 ' + iconShellClasses[technology.key]"
                 >
                   @switch (technology.key) {
                     @case ('csharp') {
@@ -82,7 +82,7 @@
                   }
                 </div>
 
-                <p class="text-sm font-semibold text-zinc-900">
+                <p class="text-sm font-semibold text-zinc-900 sm:text-[15px]">
                   {{ technology.label }}
                 </p>
               </article>

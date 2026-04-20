@@ -1,40 +1,40 @@
-<app-section-shell sectionId="experiencia" extraClasses="min-h-[120vh]">
-  <div class="mx-auto flex w-full max-w-5xl flex-1 flex-col justify-start space-y-10">
+<app-section-shell sectionId="experiencia" extraClasses="min-h-[100vh]">
+  <div class="mx-auto flex w-full max-w-5xl flex-1 flex-col justify-start space-y-8 sm:space-y-10">
     <div class="mx-auto max-w-3xl space-y-4 text-center" appRevealOnScroll [revealDelay]="40">
       <div class="space-y-3">
-        <h2 class="text-4xl font-black tracking-[-0.04em] text-zinc-950 sm:text-5xl">
+        <h2 class="text-3xl font-black tracking-[-0.04em] text-zinc-950 sm:text-4xl md:text-5xl">
           EXPERIENCIA
         </h2>
 
-        <p class="text-base leading-8 text-zinc-500 sm:text-lg">
+        <p class="text-[15px] leading-7 text-zinc-500 sm:text-base sm:leading-8 md:text-lg">
           Un recorrido por las etapas que han definido mi crecimiento como desarrollador, desde la formación hasta la experiencia profesional.
         </p>
       </div>
     </div>
 
     <div class="relative">
-      <div class="absolute bottom-0 left-5 top-0 w-px bg-gradient-to-b from-zinc-200 via-zinc-300 to-zinc-200"></div>
+      <div class="absolute bottom-0 left-4 top-0 w-px bg-gradient-to-b from-zinc-200 via-zinc-300 to-zinc-200 sm:left-5"></div>
 
-      <div class="space-y-8 sm:space-y-10">
+      <div class="space-y-6 sm:space-y-10">
         @for (item of items; track trackByPeriod($index, item); let itemIndex = $index) {
           <article
-            class="group relative grid grid-cols-[2.5rem_1fr] items-start gap-4 sm:grid-cols-[2.75rem_1fr] sm:gap-6"
+            class="group relative grid grid-cols-[2rem_1fr] items-start gap-3 sm:grid-cols-[2.75rem_1fr] sm:gap-6"
             appRevealOnScroll
             [revealVariant]="itemIndex % 2 === 0 ? 'left' : 'right'"
             [revealDelay]="120 + itemIndex * 110"
           >
             <div
-              class="relative flex h-10 w-10 items-center justify-center rounded-full border border-white/80 bg-white shadow-[0_10px_28px_rgba(15,23,42,0.08)]"
+              class="relative flex h-8 w-8 items-center justify-center rounded-full border border-white/80 bg-white shadow-[0_10px_28px_rgba(15,23,42,0.08)] sm:h-10 sm:w-10"
             >
-              <span [class]="'h-3.5 w-3.5 rounded-full ' + dotClasses[item.kind]"></span>
+              <span [class]="'h-3 w-3 rounded-full sm:h-3.5 sm:w-3.5 ' + dotClasses[item.kind]"></span>
             </div>
 
-            <div class="space-y-4 pb-2 sm:pb-0">
+            <div class="space-y-3 pb-1 sm:space-y-4 sm:pb-0">
               <div
-                class="rounded-[2rem] border border-white/80 bg-white/85 p-6 shadow-[0_18px_50px_rgba(15,23,42,0.08)] ring-1 ring-zinc-950/5 backdrop-blur-sm transition duration-300 group-hover:-translate-y-1 group-hover:shadow-[0_24px_60px_rgba(15,23,42,0.12)] sm:p-7"
+                class="rounded-[1.5rem] border border-white/80 bg-white/85 p-4 shadow-[0_18px_50px_rgba(15,23,42,0.08)] ring-1 ring-zinc-950/5 backdrop-blur-sm transition duration-300 group-hover:-translate-y-1 group-hover:shadow-[0_24px_60px_rgba(15,23,42,0.12)] sm:rounded-[2rem] sm:p-7"
               >
-                <div class="space-y-4">
-                  <div class="space-y-3 text-left">
+                <div class="space-y-3 sm:space-y-4">
+                  <div class="space-y-2.5 text-left sm:space-y-3">
                     <div class="flex flex-wrap items-center gap-3">
                       <span
                         [class]="'inline-flex rounded-full px-3.5 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] ' + badgeClasses[item.kind]"
@@ -47,12 +47,12 @@
                       {{ item.period }}
                     </p>
 
-                    <h3 class="text-2xl font-bold tracking-[-0.04em] text-zinc-950">
+                    <h3 class="text-xl font-bold tracking-[-0.04em] text-zinc-950 sm:text-2xl">
                       {{ item.title }}
                     </h3>
                   </div>
 
-                  <p class="text-base leading-7 text-zinc-500">
+                  <p class="text-[15px] leading-6 text-zinc-500 sm:text-base sm:leading-7">
                     {{ item.description }}
                   </p>
                 </div>

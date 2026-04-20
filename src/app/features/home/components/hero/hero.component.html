@@ -1,14 +1,14 @@
-<app-section-shell sectionId="inicio" extraClasses="relative min-h-screen">
-  <div class="relative mx-auto flex w-full max-w-3xl flex-1 flex-col justify-center text-center md:text-left">
-    <div class="pointer-events-none absolute -left-10 top-2 h-32 w-32 rounded-full bg-orange-100/70 blur-3xl"></div>
-    <div class="pointer-events-none absolute right-0 top-20 h-28 w-28 rounded-full bg-sky-100/60 blur-3xl"></div>
+<app-section-shell sectionId="inicio" extraClasses="relative min-h-[92svh] sm:min-h-screen">
+  <div class="relative mx-auto flex w-full max-w-3xl flex-1 flex-col justify-center py-8 text-center md:py-10 md:text-left">
+    <div class="pointer-events-none absolute -left-6 top-6 h-24 w-24 rounded-full bg-orange-100/70 blur-3xl sm:-left-10 sm:top-2 sm:h-32 sm:w-32"></div>
+    <div class="pointer-events-none absolute right-0 top-16 h-20 w-20 rounded-full bg-sky-100/60 blur-3xl sm:top-20 sm:h-28 sm:w-28"></div>
 
     <div class="relative" appRevealOnScroll [revealDelay]="60">
-      <p class="text-sm font-semibold uppercase tracking-[0.28em] text-zinc-500 md:text-base">
+      <p class="text-[11px] font-semibold uppercase tracking-[0.24em] text-zinc-500 sm:text-sm md:text-base md:tracking-[0.28em]">
         Miguel Loor
       </p>
 
-      <h1 class="mt-4 text-4xl font-bold leading-tight tracking-[-0.04em] text-zinc-950 md:text-6xl">
+      <h1 class="mt-4 text-[2.45rem] font-bold leading-[1.02] tracking-[-0.05em] text-zinc-950 sm:text-5xl md:text-6xl">
         <span class="hero-title-shell">
           <span class="invisible">{{ heroTitle }}</span>
           <span class="hero-title-typing absolute inset-0">
@@ -20,18 +20,18 @@
         </span>
       </h1>
 
-      <p class="mx-auto mt-7 max-w-2xl text-base leading-8 text-zinc-500 md:mx-0 md:text-lg">
+      <p class="mx-auto mt-6 max-w-xl text-[15px] leading-7 text-zinc-500 sm:mt-7 sm:max-w-2xl sm:text-base sm:leading-8 md:mx-0 md:text-lg">
         Estudiante de Ingenier&iacute;a de Software con enfoque en desarrollo backend con .NET (C#) y experiencia en frontend con Angular. Me encuentro en constante formaci&oacute;n, aprendiendo nuevas tecnolog&iacute;as y fortaleciendo mis habilidades para crecer como desarrollador profesional.
       </p>
 
       <div
-        class="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:flex-wrap md:items-start"
+        class="mt-8 flex flex-col items-stretch gap-3 sm:flex-row sm:flex-wrap sm:items-center md:items-start"
         appRevealOnScroll
         [revealDelay]="220"
       >
         <button
           type="button"
-          class="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-zinc-950 px-5 py-3 text-sm font-semibold text-white shadow-[0_14px_34px_rgba(15,23,42,0.16)] transition duration-300 hover:-translate-y-0.5 hover:bg-zinc-800 hover:text-white hover:shadow-[0_18px_40px_rgba(15,23,42,0.18)] focus:outline-none focus:ring-4 focus:ring-zinc-900/10"
+          class="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-zinc-950 px-5 py-3 text-sm font-semibold text-white shadow-[0_14px_34px_rgba(15,23,42,0.16)] transition duration-300 hover:-translate-y-0.5 hover:bg-zinc-800 hover:text-white hover:shadow-[0_18px_40px_rgba(15,23,42,0.18)] focus:outline-none focus:ring-4 focus:ring-zinc-900/10 sm:w-auto"
           (click)="goToProjects()"
         >
           <span class="text-white">Proyectos</span>
@@ -42,7 +42,7 @@
           [href]="resumeUrl"
           target="_blank"
           rel="noreferrer"
-          class="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-zinc-950 px-5 py-3 text-sm font-semibold text-white shadow-[0_14px_34px_rgba(15,23,42,0.16)] transition duration-300 hover:-translate-y-0.5 hover:bg-zinc-800 hover:text-white hover:shadow-[0_18px_40px_rgba(15,23,42,0.18)] focus:outline-none focus:ring-4 focus:ring-zinc-900/10"
+          class="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-zinc-950 px-5 py-3 text-sm font-semibold text-white shadow-[0_14px_34px_rgba(15,23,42,0.16)] transition duration-300 hover:-translate-y-0.5 hover:bg-zinc-800 hover:text-white hover:shadow-[0_18px_40px_rgba(15,23,42,0.18)] focus:outline-none focus:ring-4 focus:ring-zinc-900/10 sm:w-auto"
         >
           <span class="text-white">Curr&iacute;culum</span>
           <i class="pi pi-file-pdf text-[18px] text-white" aria-hidden="true"></i>
