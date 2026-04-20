@@ -4,26 +4,26 @@
     <div class="mx-auto max-w-3xl space-y-4 text-center" appRevealOnScroll [revealDelay]="40">
       <div class="space-y-3">
         <h2 class="text-3xl font-black tracking-[-0.04em] text-zinc-950 sm:text-4xl md:text-5xl">
-          STACK Y HERRAMIENTAS
+          TECNOLOGiAS Y HERRAMIENTAS
         </h2>
-
-        <p class="text-[15px] leading-7 text-zinc-500 sm:text-base sm:leading-8 md:text-lg">
-          Tecnologias con las que construyo experiencias web limpias, escalables y enfocadas en producto.
-        </p>
       </div>
     </div>
 
-    <div class="grid gap-x-10 gap-y-8 md:grid-cols-2 md:gap-y-10">
+    <div class="grid gap-x-10 gap-y-10 md:grid-cols-2">
       @for (category of categories; track trackByTitle($index, category); let categoryIndex = $index) {
-        <section class="space-y-4 sm:space-y-5" appRevealOnScroll [revealDelay]="110 + categoryIndex * 90">
-          <h3 class="text-xl font-bold tracking-[-0.03em] text-zinc-950 sm:text-2xl">
+        <section
+          class="flex w-full flex-col items-center"
+          appRevealOnScroll
+          [revealDelay]="110 + categoryIndex * 90"
+        >
+          <h3 class="mb-6 text-center text-xl font-bold tracking-[-0.03em] text-zinc-950 sm:text-2xl">
             {{ category.title }}
           </h3>
 
-          <div class="flex flex-wrap gap-3.5 sm:gap-4">
+          <div class="grid w-full max-w-[420px] grid-cols-2 justify-items-center gap-x-8 gap-y-5">
             @for (technology of category.technologies; track trackByTechnology($index, technology); let technologyIndex = $index) {
               <article
-                class="group inline-flex min-h-[52px] max-w-full items-center gap-3 rounded-2xl pr-2 transition duration-300 hover:-translate-y-1 sm:pr-3"
+                class="group flex w-[170px] items-center gap-3 rounded-2xl transition duration-300 hover:-translate-y-1"
                 appRevealOnScroll
                 revealVariant="scale"
                 [revealDelay]="170 + categoryIndex * 70 + technologyIndex * 45"
