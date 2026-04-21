@@ -27,6 +27,20 @@
   color: #ffffff;
 }
 
+.nav-theme-slot {
+  position: relative;
+}
+
+.nav-theme-divider {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 1px;
+  height: 1.75rem;
+  transform: translateY(-50%);
+  background: rgba(63, 63, 70, 0.18);
+}
+
 :host-context(html[data-theme="dark"]) .nav-indicator {
   background: rgba(255, 255, 255, 0.12);
   box-shadow: 0 12px 28px rgba(2, 6, 23, 0.38);
@@ -38,4 +52,8 @@
 
 :host-context(html[data-theme="dark"]) .nav-link:not(.is-active):hover {
   background-color: rgba(255, 255, 255, 0.06);
+}
+
+:host-context(html[data-theme="dark"]) .nav-theme-divider {
+  background: rgba(255, 255, 255, 0.14);
 }

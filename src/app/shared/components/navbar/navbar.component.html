@@ -23,24 +23,24 @@
       </button>
     }
 
-    <button
-      type="button"
-      class="relative z-10 inline-flex min-h-[44px] shrink-0 items-center justify-center gap-2 rounded-full border border-zinc-200/80 bg-white/90 px-3 py-2 text-zinc-700 shadow-[0_8px_22px_rgba(15,23,42,0.08)] transition duration-200 ease-out hover:-translate-y-0.5 hover:bg-zinc-50 hover:text-zinc-950 focus:outline-none focus:ring-4 focus:ring-zinc-900/10 dark:border-white/10 dark:bg-white/5 dark:text-zinc-200 dark:hover:bg-white/10 dark:hover:text-white dark:focus:ring-white/10 sm:px-4 sm:py-2.5"
-      [attr.aria-label]="themeToggleLabel()"
-      [attr.aria-pressed]="theme.currentTheme() === 'dark'"
-      [attr.title]="themeToggleLabel()"
-      (click)="toggleTheme()"
-    >
-      <i
-        [class]="theme.currentTheme() === 'dark' ? 'pi pi-sun text-sm' : 'pi pi-moon text-sm'"
-        aria-hidden="true"
-      ></i>
+    <div class="nav-theme-slot relative z-10 ml-1 flex shrink-0 items-center pl-2 sm:ml-2 sm:pl-3">
+      <span class="nav-theme-divider" aria-hidden="true"></span>
 
-      <span class="hidden text-sm font-medium sm:inline">
-        {{ theme.currentTheme() === 'dark' ? 'Claro' : 'Oscuro' }}
-      </span>
+      <button
+        type="button"
+        class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-zinc-200/80 bg-white/90 text-zinc-700 shadow-[0_8px_22px_rgba(15,23,42,0.08)] transition duration-200 ease-out hover:-translate-y-0.5 hover:bg-zinc-50 hover:text-zinc-950 focus:outline-none focus:ring-4 focus:ring-zinc-900/10 dark:border-white/10 dark:bg-white/5 dark:text-zinc-200 dark:hover:bg-white/10 dark:hover:text-white dark:focus:ring-white/10"
+        [attr.aria-label]="themeToggleLabel()"
+        [attr.aria-pressed]="theme.currentTheme() === 'dark'"
+        [attr.title]="themeToggleLabel()"
+        (click)="toggleTheme()"
+      >
+        <i
+          [class]="theme.currentTheme() === 'dark' ? 'pi pi-sun text-sm' : 'pi pi-moon text-sm'"
+          aria-hidden="true"
+        ></i>
 
-      <span class="sr-only">{{ themeToggleLabel() }}</span>
-    </button>
+        <span class="sr-only">{{ themeToggleLabel() }}</span>
+      </button>
+    </div>
   </div>
 </nav>
