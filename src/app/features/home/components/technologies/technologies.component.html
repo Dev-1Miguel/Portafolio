@@ -3,7 +3,7 @@
 
     <div class="mx-auto max-w-3xl space-y-4 text-center" appRevealOnScroll [revealDelay]="40">
       <div class="space-y-3">
-        <h2 class="text-3xl font-black tracking-[-0.04em] text-zinc-950 sm:text-4xl md:text-5xl">
+        <h2 class="text-3xl font-black tracking-[-0.04em] text-zinc-950 dark:text-white sm:text-4xl md:text-5xl">
           TECNOLOGiAS Y HERRAMIENTAS
         </h2>
       </div>
@@ -16,7 +16,7 @@
           appRevealOnScroll
           [revealDelay]="110 + categoryIndex * 90"
         >
-          <h3 class="mb-6 text-center text-xl font-bold tracking-[-0.03em] text-zinc-950 sm:text-2xl">
+          <h3 class="mb-6 text-center text-xl font-bold tracking-[-0.03em] text-zinc-950 dark:text-zinc-100 sm:text-2xl">
             {{ category.title }}
           </h3>
 
@@ -82,7 +82,7 @@
                   }
                 </div>
 
-                <p class="text-sm font-semibold text-zinc-900 sm:text-[15px]">
+                <p class="text-sm font-semibold text-zinc-900 dark:text-zinc-200 sm:text-[15px]">
                   {{ technology.label }}
                 </p>
               </article>

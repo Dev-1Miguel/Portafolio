@@ -20,7 +20,7 @@
   height: 0.9em;
   margin-left: 0.14em;
   vertical-align: -0.08em;
-  background-color: rgba(24, 24, 27, 0.4);
+  background-color: var(--hero-caret-color);
   animation: caret-blink 1s step-end infinite;
 }
 

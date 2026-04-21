@@ -13,6 +13,7 @@ import {
 import { NAV_ITEMS } from '../../data/navigation.data';
 import { NavItem } from '../../models/nav-item.model';
 import { SectionNavigationService } from '../../services/section-navigation.service';
+import { ThemeService } from '../../services/theme.service';
 
 type ActiveIndicator = {
   left: string;
@@ -28,6 +29,7 @@ export class NavbarComponent implements AfterViewInit {
   @ViewChildren('navButton') private readonly navButtons?: QueryList<ElementRef<HTMLButtonElement>>;
 
   private readonly sectionNavigation = inject(SectionNavigationService);
+  readonly theme = inject(ThemeService);
 
   readonly items: NavItem[] = NAV_ITEMS;
   readonly iconClasses: Record<string, string> = {
@@ -71,6 +73,16 @@ export class NavbarComponent implements AfterViewInit {
 
   selectItem(item: NavItem): void {
     this.sectionNavigation.navigateToSection(item.href);
+  }
+
+  toggleTheme(): void {
+    this.theme.toggleTheme();
+  }
+
+  themeToggleLabel(): string {
+    return this.theme.currentTheme() === 'dark'
+      ? 'Cambiar a tema claro'
+      : 'Cambiar a tema oscuro';
   }
 
   @HostListener('window:resize')

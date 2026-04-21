@@ -1,7 +1,7 @@
 <nav class="fixed inset-x-0 top-0 z-50 flex justify-center px-2 pt-3 sm:px-4 sm:pt-5 lg:pt-6">
-  <div class="navbar-shell relative flex w-full max-w-full items-center gap-1 overflow-x-auto rounded-[1.35rem] border border-white/70 bg-white/88 px-1.5 py-1.5 shadow-[0_18px_50px_rgba(15,23,42,0.12)] backdrop-blur-xl sm:max-w-max sm:rounded-[1.75rem] sm:px-3 sm:py-3">
+  <div class="navbar-shell relative flex w-full max-w-full items-center gap-1 overflow-x-auto rounded-[1.35rem] border border-white/70 bg-white/88 px-1.5 py-1.5 shadow-[0_18px_50px_rgba(15,23,42,0.12)] backdrop-blur-xl dark:border-white/10 dark:bg-zinc-950/80 dark:shadow-[0_18px_50px_rgba(2,6,23,0.42)] sm:max-w-max sm:rounded-[1.75rem] sm:px-3 sm:py-3">
     <span
-      class="nav-indicator pointer-events-none absolute bottom-1.5 left-0 top-1.5 rounded-full bg-zinc-950 shadow-[0_10px_25px_rgba(15,23,42,0.22)] sm:bottom-3 sm:top-3"
+      class="nav-indicator pointer-events-none absolute bottom-1.5 left-0 top-1.5 rounded-full sm:bottom-3 sm:top-3"
       [style.width]="activeIndicator().width"
       [style.transform]="'translateX(' + activeIndicator().left + ')'"
     ></span>
@@ -10,10 +10,8 @@
       <button
         #navButton
         type="button"
-        class="relative z-10 inline-flex min-h-[44px] min-w-fit shrink-0 items-center justify-center gap-1.5 rounded-full px-3 py-2 text-[11px] font-medium transition-colors duration-200 ease-out sm:min-h-[44px] sm:min-w-[120px] sm:gap-2 sm:px-4 sm:py-2.5 sm:text-sm"
-        [class.text-white]="isActive(item.href)"
-        [class.text-zinc-700]="!isActive(item.href)"
-        [class.hover:bg-zinc-900/5]="!isActive(item.href)"
+        class="nav-link relative z-10 inline-flex min-h-[44px] min-w-fit shrink-0 items-center justify-center gap-1.5 rounded-full px-3 py-2 text-[11px] font-medium transition-colors duration-200 ease-out sm:min-h-[44px] sm:min-w-[120px] sm:gap-2 sm:px-4 sm:py-2.5 sm:text-sm"
+        [class.is-active]="isActive(item.href)"
         (click)="selectItem(item)"
       >
         <i
@@ -24,5 +22,25 @@
         <span class="whitespace-nowrap">{{ item.label }}</span>
       </button>
     }
+
+    <button
+      type="button"
+      class="relative z-10 inline-flex min-h-[44px] shrink-0 items-center justify-center gap-2 rounded-full border border-zinc-200/80 bg-white/90 px-3 py-2 text-zinc-700 shadow-[0_8px_22px_rgba(15,23,42,0.08)] transition duration-200 ease-out hover:-translate-y-0.5 hover:bg-zinc-50 hover:text-zinc-950 focus:outline-none focus:ring-4 focus:ring-zinc-900/10 dark:border-white/10 dark:bg-white/5 dark:text-zinc-200 dark:hover:bg-white/10 dark:hover:text-white dark:focus:ring-white/10 sm:px-4 sm:py-2.5"
+      [attr.aria-label]="themeToggleLabel()"
+      [attr.aria-pressed]="theme.currentTheme() === 'dark'"
+      [attr.title]="themeToggleLabel()"
+      (click)="toggleTheme()"
+    >
+      <i
+        [class]="theme.currentTheme() === 'dark' ? 'pi pi-sun text-sm' : 'pi pi-moon text-sm'"
+        aria-hidden="true"
+      ></i>
+
+      <span class="hidden text-sm font-medium sm:inline">
+        {{ theme.currentTheme() === 'dark' ? 'Claro' : 'Oscuro' }}
+      </span>
+
+      <span class="sr-only">{{ themeToggleLabel() }}</span>
+    </button>
   </div>
 </nav>

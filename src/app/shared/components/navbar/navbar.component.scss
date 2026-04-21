@@ -11,4 +11,31 @@
 .nav-indicator {
   transition: transform 300ms ease-out, width 300ms ease-out;
   will-change: transform, width;
+  background: #18181b;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.22);
+}
+
+.nav-link {
+  color: #3f3f46;
+}
+
+.nav-link:not(.is-active):hover {
+  background-color: rgba(24, 24, 27, 0.05);
+}
+
+.nav-link.is-active {
+  color: #ffffff;
+}
+
+:host-context(html[data-theme="dark"]) .nav-indicator {
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 12px 28px rgba(2, 6, 23, 0.38);
+}
+
+:host-context(html[data-theme="dark"]) .nav-link {
+  color: #d4d4d8;
+}
+
+:host-context(html[data-theme="dark"]) .nav-link:not(.is-active):hover {
+  background-color: rgba(255, 255, 255, 0.06);
 }

@@ -1,7 +1,8 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { MainLayoutComponent } from './layout/main-layout/main-layout';
 import { BackgroundParticlesComponent } from './shared/components/background-particles/background-particles.component';
+import { ThemeService } from './shared/services/theme.service';
 
 @Component({
   selector: 'app-root',
@@ -11,4 +12,5 @@ import { BackgroundParticlesComponent } from './shared/components/background-par
 })
 export class App {
   protected readonly title = signal('Portafolio');
+  private readonly themeService = inject(ThemeService);
 }

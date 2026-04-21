@@ -8,4 +8,6 @@
 .particles-host {
   height: 100%;
   width: 100%;
+  filter: var(--particle-filter);
+  transition: filter 180ms ease;
 }

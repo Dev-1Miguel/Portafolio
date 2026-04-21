@@ -7,6 +7,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="assets/LogoPortafolio.jpg">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+  <script>
+    (() => {
+      const storageKey = 'portfolio-theme-preference';
+      const darkQuery = '(prefers-color-scheme: dark)';
+
+      try {
+        const storedPreference = window.localStorage.getItem(storageKey);
+        const resolvedTheme = storedPreference === 'light' || storedPreference === 'dark'
+          ? storedPreference
+          : window.matchMedia(darkQuery).matches
+            ? 'dark'
+            : 'light';
+
+        document.documentElement.dataset.theme = resolvedTheme;
+        document.documentElement.style.colorScheme = resolvedTheme;
+      } catch {
+        document.documentElement.dataset.theme = window.matchMedia(darkQuery).matches ? 'dark' : 'light';
+      }
+    })();
+  </script>
 </head>
 <body>
   <app-root></app-root>
