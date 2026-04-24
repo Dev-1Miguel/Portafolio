@@ -8,7 +8,8 @@ import {
   ViewChildren,
   effect,
   inject,
-  signal
+  signal,
+  NgZone
 } from '@angular/core';
 import { NAV_ITEMS } from '../../data/navigation.data';
 import { NavItem } from '../../models/nav-item.model';
@@ -25,11 +26,12 @@ type ActiveIndicator = {
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss'
 })
-export class NavbarComponent implements AfterViewInit {
+export class NavbarComponent implements AfterViewInit, OnDestroy {
   @ViewChildren('navButton') private readonly navButtons?: QueryList<ElementRef<HTMLButtonElement>>;
 
   private readonly sectionNavigation = inject(SectionNavigationService);
-  readonly theme = inject(ThemeService);
+  private readonly theme = inject(ThemeService);
+  private readonly ngZone = inject(NgZone);
 
   readonly items: NavItem[] = NAV_ITEMS;
   readonly iconClasses: Record<string, string> = {
@@ -41,8 +43,10 @@ export class NavbarComponent implements AfterViewInit {
     contact: 'pi pi-envelope'
   };
   readonly activeIndicator = signal<ActiveIndicator>({ left: '0px', width: '0px' });
+  readonly currentTheme = this.theme.currentTheme;
 
   private indicatorFrameId: number | null = null;
+  private resizeObserver: ResizeObserver | null = null;
 
   constructor() {
     effect(() => {
@@ -53,14 +57,19 @@ export class NavbarComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     this.sectionNavigation.connect(this.items);
+    this.setupResizeObserver();
     this.scheduleIndicatorSync();
-    this.navButtons?.changes.subscribe(() => this.scheduleIndicatorSync());
+    this.navButtons?.changes.subscribe(() => {
+      this.setupResizeObserver();
+      this.scheduleIndicatorSync();
+    });
   }
 
   ngOnDestroy(): void {
     if (this.indicatorFrameId !== null) {
       cancelAnimationFrame(this.indicatorFrameId);
     }
+    this.resizeObserver?.disconnect();
   }
 
   trackByHref(_index: number, item: NavItem): string {
@@ -80,7 +89,7 @@ export class NavbarComponent implements AfterViewInit {
   }
 
   themeToggleLabel(): string {
-    return this.theme.currentTheme() === 'dark'
+    return this.currentTheme() === 'dark'
       ? 'Cambiar a tema claro'
       : 'Cambiar a tema oscuro';
   }
@@ -103,9 +112,11 @@ export class NavbarComponent implements AfterViewInit {
       cancelAnimationFrame(this.indicatorFrameId);
     }
 
-    this.indicatorFrameId = requestAnimationFrame(() => {
-      this.indicatorFrameId = null;
-      this.syncIndicator(activeIndex);
+    this.ngZone.runOutsideAngular(() => {
+      this.indicatorFrameId = requestAnimationFrame(() => {
+        this.indicatorFrameId = null;
+        this.syncIndicator(activeIndex);
+      });
     });
   }
 
@@ -123,5 +134,19 @@ export class NavbarComponent implements AfterViewInit {
       left: `${activeButton.offsetLeft}px`,
       width: `${activeButton.offsetWidth}px`
     });
+  }
+
+  private setupResizeObserver(): void {
+    this.resizeObserver?.disconnect();
+
+    if (typeof window === 'undefined' || !this.navButtons) {
+      return;
+    }
+
+    this.resizeObserver = new ResizeObserver(() => {
+      this.scheduleIndicatorSync();
+    });
+
+    this.navButtons.forEach((btn) => this.resizeObserver?.observe(btn.nativeElement));
   }
 }
