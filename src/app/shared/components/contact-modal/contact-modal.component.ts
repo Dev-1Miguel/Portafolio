@@ -13,6 +13,8 @@ import {
   signal
 } from '@angular/core';
 import { AbstractControl, FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { ContactService } from '../../services/contact.service';
+
 
 type ContactField = 'name' | 'email' | 'message';
 
@@ -35,6 +37,8 @@ export class ContactModalComponent implements OnDestroy {
 
   private readonly formBuilder = inject(FormBuilder);
   private readonly document = inject(DOCUMENT);
+  private readonly contactService = inject(ContactService);
+
 
   readonly form = this.formBuilder.nonNullable.group({
     name: ['', [Validators.required]],
@@ -93,7 +97,7 @@ export class ContactModalComponent implements OnDestroy {
     this.closed.emit();
   }
 
-  submitForm(): void {
+  async submitForm(): Promise<void> {
     if (this.form.invalid) {
       this.form.markAllAsTouched();
       this.focusFirstInvalidControl();
@@ -103,8 +107,9 @@ export class ContactModalComponent implements OnDestroy {
     this.isSubmitting.set(true);
     this.form.disable();
 
-    this.submitTimerId = window.setTimeout(() => {
-      this.submitTimerId = null;
+    try {
+      await this.contactService.enviarFormulario(this.form.getRawValue());
+      
       this.isSubmitting.set(false);
       this.isSuccess.set(true);
       this.form.enable();
@@ -116,7 +121,12 @@ export class ContactModalComponent implements OnDestroy {
       this.form.markAsPristine();
       this.form.markAsUntouched();
       this.focusDialogPanel();
-    }, 1400);
+    } catch (error) {
+      this.isSubmitting.set(false);
+      this.form.enable();
+      // Optionally show an error message to the user here
+      console.error('Error sending message:', error);
+    }
   }
 
   startNewMessage(): void {

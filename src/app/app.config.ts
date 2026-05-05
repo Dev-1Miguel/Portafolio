@@ -3,7 +3,6 @@ import { provideRouter, withInMemoryScrolling } from '@angular/router';
 import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
 import Aura from '@primeuix/themes/aura';
 import { providePrimeNG } from 'primeng/config';
-
 import { routes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
