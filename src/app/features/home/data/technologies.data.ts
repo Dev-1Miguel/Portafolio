@@ -15,14 +15,16 @@ export const TECHNOLOGY_CATEGORIES: TechnologyCategory[] = [
     title: 'Backend',
     technologies: [
       { key: 'csharp', label: 'C#' },
-      { key: 'aspnet', label: 'ASP.NET' }
+      { key: 'aspnet', label: 'ASP.NET' },
+      { key: 'nestjs', label: 'NestJS' }
     ]
   },
   {
     title: 'Base de Datos',
     technologies: [
       { key: 'sqlserver', label: 'SQL Server' },
-      { key: 'postgresql', label: 'PostgreSQL' }
+      { key: 'postgresql', label: 'PostgreSQL' },
+      { key: 'firebase', label: 'Firebase' }
     ]
   },
   {

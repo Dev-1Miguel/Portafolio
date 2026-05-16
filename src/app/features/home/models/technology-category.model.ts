@@ -11,7 +11,9 @@ export interface TechnologyItem {
     | 'postgresql'
     | 'git'
     | 'figma'
-    | 'azure';
+    | 'azure'
+    | 'nestjs'
+    | 'firebase';
   label: string;
 }
 
