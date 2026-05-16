@@ -24,7 +24,9 @@ export class TechnologiesComponent {
     postgresql: 'bg-indigo-50 text-indigo-600 ring-1 ring-indigo-100 dark:bg-indigo-500/15 dark:text-indigo-200 dark:ring-indigo-500/25',
     git: 'bg-orange-50 text-orange-600 ring-1 ring-orange-100 dark:bg-orange-500/15 dark:text-orange-200 dark:ring-orange-500/25',
     figma: 'bg-pink-50 text-pink-600 ring-1 ring-pink-100 dark:bg-pink-500/15 dark:text-pink-200 dark:ring-pink-500/25',
-    azure: 'bg-sky-50 text-sky-600 ring-1 ring-sky-100 dark:bg-sky-500/15 dark:text-sky-200 dark:ring-sky-500/25'
+    azure: 'bg-sky-50 text-sky-600 ring-1 ring-sky-100 dark:bg-sky-500/15 dark:text-sky-200 dark:ring-sky-500/25',
+    nestjs: 'bg-red-50 text-red-600 ring-1 ring-red-100 dark:bg-red-500/15 dark:text-red-200 dark:ring-red-500/25',
+    firebase: 'bg-amber-50 text-amber-500 ring-1 ring-amber-100 dark:bg-amber-500/15 dark:text-amber-200 dark:ring-amber-500/25'
   };
 
   trackByTitle(_index: number, item: TechnologyCategory): string {

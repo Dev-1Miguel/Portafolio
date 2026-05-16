@@ -13,7 +13,7 @@ export class HeroComponent implements OnInit, OnDestroy {
   private readonly sectionNavigation = inject(SectionNavigationService);
 
   readonly heroTitle = 'Ingeniero de Software Junior';
-  readonly resumeUrl = 'assets/CV_Miguel_Loor_Vera.pdf';
+  readonly resumeUrl = 'assets/Miguel_Loor_Vera_CV.pdf';
 
   readonly typedTitle = signal('');
   readonly typingComplete = signal(false);
