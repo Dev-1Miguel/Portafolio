@@ -5,5 +5,5 @@ export interface ExperienceItem {
   title: string;
   type: string;
   kind: ExperienceKind;
-  description: string;
+  description: string[];
 }
