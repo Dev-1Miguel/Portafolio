@@ -48,9 +48,14 @@
                     </h3>
                   </div>
 
-                  <p class="text-[15px] leading-6 text-zinc-500 dark:text-zinc-300 sm:text-base sm:leading-7">
-                    {{ item.description }}
-                  </p>
+                  <ul class="mt-5 space-y-3 text-[15px] leading-6 text-zinc-500 dark:text-zinc-300 sm:text-base sm:leading-7">
+                    @for (point of item.description; track point) {
+                      <li class="flex gap-3">
+                        <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-teal-300/80 dark:bg-teal-300/80" aria-hidden="true"></span>
+                        <span>{{ point }}</span>
+                      </li>
+                    }
+                  </ul>
                 </div>
               </div>
             </div>

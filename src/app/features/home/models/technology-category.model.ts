@@ -3,6 +3,7 @@ export interface TechnologyItem {
     | 'csharp'
     | 'aspnet'
     | 'angular'
+    | 'ionic'
     | 'typescript'
     | 'javascript'
     | 'html'

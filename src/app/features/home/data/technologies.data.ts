@@ -1,10 +1,11 @@
 import { TechnologyCategory } from '../models/technology-category.model';
 
 export const TECHNOLOGY_CATEGORIES: TechnologyCategory[] = [
-    {
+  {
     title: 'Frontend',
     technologies: [
       { key: 'angular', label: 'Angular' },
+      { key: 'ionic', label: 'Ionic' },
       { key: 'typescript', label: 'TypeScript' },
       { key: 'javascript', label: 'JavaScript' },
       { key: 'html', label: 'HTML' },

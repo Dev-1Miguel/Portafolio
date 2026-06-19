@@ -12,7 +12,7 @@ import { SectionNavigationService } from '../../../../shared/services/section-na
 export class HeroComponent implements OnInit, OnDestroy {
   private readonly sectionNavigation = inject(SectionNavigationService);
 
-  readonly heroTitle = 'Ingeniero de Software Junior';
+  readonly heroTitle = 'Ingeniero de Software';
   readonly resumeUrl = 'assets/Miguel_Loor_Vera_CV.pdf';
 
   readonly typedTitle = signal('');
