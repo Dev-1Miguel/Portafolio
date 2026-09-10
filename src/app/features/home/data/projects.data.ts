@@ -2,15 +2,15 @@ import { ProjectItem } from '../models/project.model';
 
 export const PROJECTS: ProjectItem[] = [
   {
-    slug: 'trajectory',
-    title: 'Trajectory',
+    slug: 'rumbo',
+    title: 'Rumbo',
     description:
-      'Aplicacion web y movil para registrar ingresos, gastos, transferencias e inversiones, con dashboard financiero, reportes mensuales, gestion de categorias, billeteras y autenticacion segura.',
-    previewTag: 'PROYECTO PERSONAL',
-    previewNote: 'Web y movil',
+      'Aplicación financiera personal en producción para gestionar ingresos, gastos, transferencias, fondos administrados y préstamos, disponible en web y móvil.',
+    previewTag: 'EN PRODUCCIÓN',
+    previewNote: 'Web y móvil',
     previewClasses: 'from-sky-100 via-white to-cyan-50 ring-sky-100/80 dark:from-sky-500/18 dark:via-slate-950/40 dark:to-cyan-500/12 dark:ring-white/10',
-    imageUrl: 'assets/Trajectoria.jpg',
-    imageAlt: 'Vista del proyecto Trajectory',
+    imageUrl: 'assets/Rumbo.png',
+    imageAlt: 'Pantalla de inicio de sesión de Rumbo',
     technologies: [
       {
         name: 'Angular',
@@ -44,13 +44,13 @@ export const PROJECTS: ProjectItem[] = [
       }
     ],
     stats: [
-      { value: 'App', label: 'mobile' },
+      { value: 'En línea', label: 'producción' },
       { value: 'Finanzas', label: 'dashboard' },
-      { value: 'Segura', label: 'auth' }
+      { value: 'Privada', label: 'acceso' }
     ],
     links: [
-      { label: 'Ver proyecto', href: 'https://trajec-toria.netlify.app/auth/login', variant: 'primary' },
-      { label: 'GitHub', href: 'https://github.com/Dev-1Miguel/Trajectory-Front', variant: 'secondary' }
+      { label: 'Ver proyecto', href: 'https://proud-river-0404c0110.6.azurestaticapps.net', variant: 'primary' },
+      { label: 'GitHub', href: 'https://github.com/Dev-1Miguel/rumbo', variant: 'secondary' }
     ]
   },
   {
