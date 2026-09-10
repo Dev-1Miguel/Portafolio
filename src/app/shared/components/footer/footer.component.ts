@@ -13,8 +13,7 @@ export class FooterComponent {
 
   readonly iconClasses: Record<string, string> = {
     linkedin: 'pi pi-linkedin',
-    github: 'pi pi-github',
-    instagram: 'pi pi-instagram'
+    github: 'pi pi-github'
   };
 
   trackByLabel(_index: number, link: SocialLink): string {
