@@ -2,16 +2,16 @@ import { ExperienceItem } from '../models/experience.model';
 
 export const EXPERIENCE_ITEMS: ExperienceItem[] = [
   {
-    period: '2026 - Actualidad',
-    title: 'Pasante Full Stack - Red de Servicios Facilito',
+    period: 'Marzo 2026 - Agosto 2026',
+    title: 'Pasante de Desarrollo - Red de Servicios Facilito',
     type: 'Profesional',
     kind: 'professional',
     description: [
-      'Participacion en el mantenimiento y evolucion de aplicaciones empresariales utilizando Angular, ASP.NET con C# y SQL Server.',
-      'Desarrollo de nuevos modulos, funcionalidades y APIs, integrando frontend, backend y logica de base de datos.',
-      'Mantenimiento y mejora de procedimientos almacenados, consultas y procesos internos orientados a la estabilidad del sistema.',
-      'Gestion y validacion de cambios mediante Azure DevOps, apoyando el control de versiones y despliegues en distintos ambientes.',
-      'Desarrollo de modulo para gestion de desactivacion de productos utilizando Angular, NestJS y SQL Server.'
+      'Migre el modulo de Acreditaciones desde una aplicacion legada hacia Angular, NestJS y SQL Server; la nueva version fue desplegada a produccion.',
+      'Desarrolle y mantuve funcionalidades en siete modulos empresariales de usuarios, agencias, instituciones, acreditaciones, reversos operativos y disponibilidad de productos.',
+      'Implemente mas de 30 endpoints en NestJS con controladores, validaciones e integracion con procedimientos almacenados en SQL Server.',
+      'Cree y rediseñe procedimientos almacenados para nuevos flujos y modernizacion de logica existente entre multiples bases de datos y servidores.',
+      'Implemente la activacion y desactivacion masiva de productos; atendi cinco incidencias y participe en tres despliegues a produccion con Git y Azure DevOps.'
     ]
   },
   {

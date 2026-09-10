@@ -5,9 +5,9 @@ export const ABOUT_PROFILE: AboutProfile = {
   name: 'Miguel Loor',
   imageUrl: 'assets/Perfil.jpg',
   description: [
-    'Estudiante de Ingenieria en Software con enfoque en desarrollo backend utilizando .NET (C#), con experiencia complementaria en Angular.',
-    'He participado en proyectos desarrollando APIs REST, logica de negocio y trabajando con bases de datos como SQL Server y PostgreSQL.',
-    'Me interesa seguir creciendo como desarrollador .NET, aportando compromiso, aprendizaje continuo y buenas practicas de programacion.'
+    'Desarrollador de software junior con experiencia en desarrollo y mantenimiento de aplicaciones empresariales en produccion.',
+    'He trabajado con Angular, NestJS, ASP.NET con C#, APIs REST, SQL Server y Azure DevOps, desarrollando interfaces, logica de negocio y bases de datos.',
+    'Me interesa seguir creciendo como desarrollador full stack, aportando compromiso, aprendizaje continuo y buenas practicas de programacion.'
   ]
 };
 
@@ -15,17 +15,17 @@ export const EDUCATION_ENTRIES: AboutEntry[] = [
   {
     title: 'Ingenieria en Software',
     subtitle: 'Universidad de Guayaquil',
-    period: '2021 - Actualmente',
-    description: 'Formacion centrada en desarrollo web, arquitectura de aplicaciones y resolucion de problemas.'
+    period: 'Marzo 2021 - Actualidad',
+    description: 'Formacion academica completada (10 semestres); trabajo de titulacion pendiente.'
   }
 ];
 
 export const EXPERIENCE_ENTRIES: AboutEntry[] = [
   {
-    title: 'Pasante Full Stack',
-    subtitle: 'Mantenimiento y mejora de plataforma web empresarial',
-    period: 'Actualidad',
+    title: 'Pasante de Desarrollo',
+    subtitle: 'Red de Servicios Facilito',
+    period: 'Marzo 2026 - Agosto 2026',
     description:
-      'Encargado del mantenimiento y mejora de la plataforma web principal de la empresa. Trabajo con Angular, .NET y SQL Server para el desarrollo y actualizacion de funcionalidades. Apoyo en la gestion de versiones y control de codigo mediante Azure DevOps con Pull Requests. Tambien participo en la identificacion y resolucion de incidencias para fortalecer la estabilidad y el rendimiento del sistema.'
+      'Desarrolle y mantuve funcionalidades en modulos empresariales con Angular, NestJS y SQL Server. Migre el modulo de Acreditaciones a produccion, implemente mas de 30 endpoints y participe en despliegues mediante Git y Azure DevOps.'
   }
 ];
