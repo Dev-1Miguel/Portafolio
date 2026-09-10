@@ -26,6 +26,6 @@ export const EXPERIENCE_ENTRIES: AboutEntry[] = [
     subtitle: 'Red de Servicios Facilito',
     period: 'Marzo 2026 - Agosto 2026',
     description:
-      'Desarrolle y mantuve funcionalidades en modulos empresariales con Angular, NestJS y SQL Server. Migre el modulo de Acreditaciones a produccion, implemente mas de 30 endpoints y participe en despliegues mediante Git y Azure DevOps.'
+      'Desarrolle y mantuve funcionalidades para aplicaciones empresariales con Angular, NestJS y SQL Server. Participe en la modernizacion de una aplicacion legada, implemente mas de 30 endpoints y realice despliegues con Git y Azure DevOps.'
   }
 ];

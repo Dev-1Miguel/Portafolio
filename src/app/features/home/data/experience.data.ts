@@ -7,11 +7,11 @@ export const EXPERIENCE_ITEMS: ExperienceItem[] = [
     type: 'Profesional',
     kind: 'professional',
     description: [
-      'Migre el modulo de Acreditaciones desde una aplicacion legada hacia Angular, NestJS y SQL Server; la nueva version fue desplegada a produccion.',
-      'Desarrolle y mantuve funcionalidades en siete modulos empresariales de usuarios, agencias, instituciones, acreditaciones, reversos operativos y disponibilidad de productos.',
+      'Participe en la modernizacion de una aplicacion legada hacia Angular, NestJS y SQL Server, desplegada posteriormente a produccion.',
+      'Desarrolle y mantuve funcionalidades en varias aplicaciones empresariales, integrando interfaces, APIs y procesos de base de datos.',
       'Implemente mas de 30 endpoints en NestJS con controladores, validaciones e integracion con procedimientos almacenados en SQL Server.',
-      'Cree y rediseñe procedimientos almacenados para nuevos flujos y modernizacion de logica existente entre multiples bases de datos y servidores.',
-      'Implemente la activacion y desactivacion masiva de productos; atendi cinco incidencias y participe en tres despliegues a produccion con Git y Azure DevOps.'
+      'Cree y rediseñe procedimientos almacenados para nuevos flujos y la modernizacion de logica existente.',
+      'Atendi incidencias y participe en despliegues a produccion utilizando Git y Azure DevOps.'
     ]
   },
   {
